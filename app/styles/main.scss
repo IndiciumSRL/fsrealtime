@@ -1,0 +1,131 @@
+$icon-font-path: "/bower_components/sass-bootstrap/fonts/";
+
+@import 'sass-bootstrap/lib/bootstrap';
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* Space out content a bit */
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+/* Background color of jumbotron */
+.jumbotron {
+    background-color: #FFFFFF;
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+// Make CLI paragraphs as close as possible
+.cli {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.cli > p {
+    margin: 0 0 0;
+}
+
+.cli > .warn {
+    background-color: #F0BF22;
+    color: #2253F0;
+}
+
+.cli > .console {
+
+}
+
+.cli > .debug {
+
+}
+
+.cli > .notice {
+    background-color: magenta;
+}
+
+.cli > .info {
+    background-color: green;
+    color: #FFFFFF;
+}
+
+.cli > .crit {
+    background-color: #FF3355;
+    color: #33FFDD;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+
+}
+
+.cli > .err {
+    background-color: #BD1531;
+    color: #FFFFFF;
+
+}
+
+.cli > .alert {
+    background-color: #D1A208;
+    color: #0837D1;
+    border-top-style: none;
+    border-top-width: 0;
+    border-top-color: none;
+    border-radius: 0;
+    padding: 0;
+
+
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    // .container {
+    //     max-width: 730px;
+    // }
+
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
+}
