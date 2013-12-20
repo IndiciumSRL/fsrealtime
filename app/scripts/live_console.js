@@ -17,6 +17,7 @@
         var logLevels = ['console', 'alert', 'crit', 'err', 'warn', 'notice', 'info', 'debug'];
         var availableUuids = [];
         var hideClasses = [];
+        var filteredUuids = [];
 
         var messageReceived = function(data) {
             var $p = $('<p></p>');
@@ -40,7 +41,15 @@
 
         $(document).on('newLog', messageReceived);
 
-        
+        $('select#uuids').change(function() {
+            filteredUuids = [];
+            var selectors = [];
+            $(this).find( 'option:selected' ).each(function() {
+                filteredUuids.push($(this).text());
+                selectors.push();
+            });
+        });
+
         $('input[type="checkbox"]').on('click', function() {
             var checked = $(this).prop('checked');
             var class_ = $(this).val();
