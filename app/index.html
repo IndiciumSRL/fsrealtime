@@ -6,128 +6,95 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>FreeSWITCH™ Realtime Console</title>
+        <title>fsrealtime</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <!-- build:css styles/vendor.css -->
-        <!-- bower:css -->
-        <!-- endbower -->
-        <!-- endbuild -->
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
+        <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
+        <!-- endbuild -->
 
+        <!-- livereload script -->
+        <script>document.write('<script src="http://'
+         + (location.host || 'localhost').split(':')[0]
+         + ':35729/livereload.js?snipver=1" type="text/javascript"><\/script>')
+        </script>
     </head>
     <body>
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div class="container">
 
+
+        <div class="header">
+            <h3 class="text-muted">FreeSWITCH™ Realtime Panel</h3>
         </div>
 
-        <div class="container">
-            <div class="header">
-                <ul class="nav nav-pills pull-right">
-                    <li class="active"><a href="#">Command Line</a></li>
-                    <li class=""><a href="#">Events</a></li>
-                </ul>
-                <h3 class="text-muted">FreeSWITCH™ Realtime</h3>
-            </div>
+        <div class="content">
             <div class="row">
-                
-                <div class="col-lg-2">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Filter Level</div>
-                        <div class="panel-body">
-                            <div class="checkbox">
-                                <label>
-                                  <input checked="checked" type="checkbox" value="debug"> DEBUG
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                  <input checked="checked" type="checkbox" value="info"> INFO
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                  <input checked="checked" type="checkbox" value="notice"> NOTICE
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                  <input checked="checked" type="checkbox" value="warn"> WARNING
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                  <input checked="checked" type="checkbox" value="err"> ERROR
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                  <input checked="checked" type="checkbox" value="crit"> CRITICAL
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                  <input checked="checked" type="checkbox" value="alert"> ALERT
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                  <input checked="checked" type="checkbox" value="console"> CONSOLE
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Filter UUID</div>
-                        <div class="panel-body">
-                            <select multiple="true" class="form-control" id="uuids">
-                            </select>
-                        </div>
+                <div class="col-xs-1">
+                    <div>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li>
+                                <label>Loglevel</label>
+                                <select class="form-control">
+                                    <option>Console</option>
+                                    <option>Alert</option>
+                                    <option>Critical</option>
+                                    <option>Error</option>
+                                    <option>Warning</option>
+                                    <option>Notice</option>
+                                    <option>Info</option>
+                                    <option selected="selected">Debug</option>
+                                </select>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                
-                <div class="col-lg-10">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">Command Line Interface</div>
-                            <div class="panel-body cli">
-                            </div>
-                            <div class="panel-footer">
-                                <div class="input-group">
-                                  <input type="text" class="form-control" autofocus>
-                                  <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button" id="run_api">Execute</button>
-                                  </span>
-                                </div><!-- /input-group -->
-                            </div>
-                        </div>
+                <div class="col-xs-11">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Console for <em style='color:blue;'><strong>127.0.0.1</strong></em>
+                        </h3>
+                      </div>
+                      <div class="panel-body console">
+                        <p class="">A simple console log</p>
+                        <p class="aler">This is a alert line</p>
+                        <p class="crit">This is a crit line</p>
+                        <p class="err">This is a err line</p>
+                        <p class="warning">This is a warning line</p>
+                        <p class="notice">This is a notice line</p>
+                        <p class="info">This is a info line</p>
+                        <p class="debug">This is a debug line</p>
+                      </div>
+                      <div class="panel-footer">
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Issue your commands from here.">
+                          <span class="input-group-btn">
+                            <button class="btn btn-danger" type="button">Send</button>
+                          </span>
+                        </div><!-- /input-group -->
+                      </div>
                     </div>
-                </div>
-
-                <div class="footer">
-                    <p>Contributed by the <a href="#">Indicium SRL</a> team</p>
                 </div>
             </div>
+        </div>
+
+
+        <div class="footer">
+            <p>Sponsored by Indicium SRL</p>
         </div>
 
 
         <!-- build:js scripts/vendor.js -->
-        <!-- bower:js -->
         <script src="bower_components/jquery/jquery.js"></script>
-        <!-- endbower -->
-        <!-- endbuild -->
-
-        <!-- build:js scripts/main.js -->
-        <script src="scripts/main.js"></script>
-        <script src="scripts/socket.js"></script>
-        <script src="scripts/live_console.js"></script>
+        <script src="bower_components/underscore/underscore.js"></script>
+        <script src="bower_components/backbone/backbone.js"></script>
         <!-- endbuild -->
 
         <!-- build:js scripts/plugins.js -->
@@ -143,6 +110,11 @@
         <script src="bower_components/sass-bootstrap/js/scrollspy.js"></script>
         <script src="bower_components/sass-bootstrap/js/collapse.js"></script>
         <script src="bower_components/sass-bootstrap/js/tab.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <script src="scripts/templates.js"></script>
         <!-- endbuild -->
 </body>
 </html>

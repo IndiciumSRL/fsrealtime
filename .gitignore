@@ -1,8 +1,7 @@
 node_modules
 dist
-.tmp
+test/temp
 .sass-cache
 app/bower_components
-test/bower_components
-*.pyc
-*.pyo
+.tmp
+test/bower_components/

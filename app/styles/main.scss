@@ -9,18 +9,66 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
     padding: 0.2em 0;
 }
 
+html {
+    height: 100%;
+}
+
 /* Space out content a bit */
 body {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px 20px;
+    height: 100%;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
-.marketing,
+.content,
 .footer {
     padding-left: 15px;
     padding-right: 15px;
+}
+
+/* Place a margins for content */
+.content {
+    padding-top: 10px;
+}
+
+.content .btn-danger {
+    min-width: 90px;
+}
+
+/* Console should look like a console */
+div.console {
+    background: #000000;
+    color: #FFFFFF;
+    font-family: monospace;
+    overflow-y: scroll;
+    border: 1px solid #FFFFFF;
+}
+
+div.console p {
+    line-height: 15px;
+    color : #FFFFFF;
+    margin: 0;
+}
+
+div.console p.aler, div.console p.crit,  div.console p.err {
+    color : red;
+}
+
+div.console p.warning {
+    color: magenta;
+}
+
+div.console p.notice {
+    color: cyan;
+}
+
+div.console p.info {
+    color: green;
+}
+
+div.console p.debug {
+    color: yellow;
 }
 
 /* Custom page header */
@@ -33,7 +81,6 @@ body {
     margin-top: 0;
     margin-bottom: 0;
     line-height: 40px;
-    padding-bottom: 19px;
 }
 
 /* Custom page footer */
@@ -41,91 +88,4 @@ body {
     padding-top: 19px;
     color: #777;
     border-top: 1px solid #e5e5e5;
-}
-
-/* Background color of jumbotron */
-.jumbotron {
-    background-color: #FFFFFF;
-}
-
-.container-narrow > hr {
-    margin: 30px 0;
-}
-
-// Make CLI paragraphs as close as possible
-.cli {
-    max-height: 500px;
-    overflow-y: auto;
-}
-
-.cli > p {
-    margin: 0 0 0;
-}
-
-.cli > .warn {
-    background-color: #F0BF22;
-    color: #2253F0;
-}
-
-.cli > .console {
-
-}
-
-.cli > .debug {
-
-}
-
-.cli > .notice {
-    background-color: magenta;
-}
-
-.cli > .info {
-    background-color: green;
-    color: #FFFFFF;
-}
-
-.cli > .crit {
-    background-color: #FF3355;
-    color: #33FFDD;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    padding-left: 4px;
-
-}
-
-.cli > .err {
-    background-color: #BD1531;
-    color: #FFFFFF;
-
-}
-
-.cli > .alert {
-    background-color: #D1A208;
-    color: #0837D1;
-    border-top-style: none;
-    border-top-width: 0;
-    border-top-color: none;
-    border-radius: 0;
-    padding: 0;
-
-
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-    // .container {
-    //     max-width: 730px;
-    // }
-
-    /* Remove the padding we set earlier */
-    .header,
-    .marketing,
-    .footer {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    /* Space out the masthead */
-    .header {
-        margin-bottom: 30px;
-    }
 }

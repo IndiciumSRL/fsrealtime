@@ -1,12 +1,29 @@
-'use strict';
+/*global fsrealtime, $*/
 
-var FSRT = window.FSRT || {};
 
-$(function(){
-	FSRT.websocket.connect();
-	$('div.cli').liveConsole({
-			send:'button#run_api',
-			field: 'input',
-			socket : FSRT.websocket
-		});
+window.fsrealtime = {
+    Models: {},
+    Collections: {},
+    Views: {},
+    Routers: {},
+    init: function () {
+        'use strict';
+        console.log('Hello from Backbone!');
+    }
+};
+
+$(document).ready(function () {
+    'use strict';
+    fsrealtime.init();
+    
+    $(window).resize(function () {
+        resolveFullHeight();
+    });
+
+    //Dynamically assign height
+    function resolveFullHeight() {
+        var newHeight = $("html").height() - $(".header").height() - $(".footer").height() - 38 - 55 - 75 + "px";
+        $(".console").css("height", newHeight);
+    }
+    resolveFullHeight();
 });
