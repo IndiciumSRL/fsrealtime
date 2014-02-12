@@ -8,7 +8,7 @@ window.fsrealtime = {
     Routers: {},
     init: function () {
         'use strict';
-        console.log('Hello from Backbone!');
+        fsrealtime.console = new fsrealtime.Views.ConsoleView();
     }
 };
 
@@ -23,7 +23,7 @@ $(document).ready(function () {
     //Dynamically assign height
     function resolveFullHeight() {
         var newHeight = $("html").height() - $(".header").height() - $(".footer").height() - 38 - 55 - 75 + "px";
-        $(".console").css("height", newHeight);
+        $("div.console").css("height", newHeight);
     }
     resolveFullHeight();
 });
