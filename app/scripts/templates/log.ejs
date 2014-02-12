@@ -1,2 +1,4 @@
-<p class=""><%= logline %></p>
+<% _.each( loglines, function( line ){ %>
+	<p class="<%= level %>"><%= line %></p>
+<% }); %>
 

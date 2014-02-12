@@ -9,11 +9,10 @@ fsrealtime.Views = fsrealtime.Views || {};
 
         template: JST['app/scripts/templates/console.ejs'],
         el: 'div.content .col-xs-11',
-        levels: ['console', 'aler', 'crit', 'err', 'warning', 'notice', 'info', 'debug'],
 
         initialize: function() {
         	this.render();
-
+            this.fsconsole = this.$('div.console');
         	this.listenTo(fsrealtime.logs, 'add', this.addLogLine);
         },
         render: function() {
@@ -22,7 +21,15 @@ fsrealtime.Views = fsrealtime.Views || {};
         },
         addLogLine: function(log) {
         	var logview = new fsrealtime.Views.LogView({model: log});
-        	this.$('div.console').append(logview.render().$el);
+        	this.fsconsole.append(logview.render().$el);
+            this.scrollToBottom();
+        },
+        scrollToBottom: function() {
+            var scrollpos = this.fsconsole.prop('scrollHeight');
+            var scrolltop = this.fsconsole.scrollTop();
+            if (scrolltop - scrollpos + 1000 > 0) {
+                this.fsconsole.scrollTop(scrollpos);
+            }
         }
 
     });

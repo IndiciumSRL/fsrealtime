@@ -14,15 +14,10 @@ fsrealtime.Models = fsrealtime.Models || {};
 
         defaults: {
             level: 0,
-            logline: ''
+            loglines: [],
+            uuid: ''
         },
 
-        validate: function(attrs, options) {
-        },
-
-        parse: function(response, options)  {
-            return response;
-        }
     });
 
     fsrealtime.Models.LogsModel.prototype.sync = function() { return null; };
