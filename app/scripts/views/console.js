@@ -10,21 +10,19 @@ fsrealtime.Views = fsrealtime.Views || {};
         template: JST['app/scripts/templates/console.ejs'],
         el: 'div.content .col-xs-11',
         levels: ['console', 'aler', 'crit', 'err', 'warning', 'notice', 'info', 'debug'],
-        currentLevel : 7,
 
         initialize: function() {
         	this.render();
+
+        	this.listenTo(fsrealtime.logs, 'add', this.addLogLine);
         },
         render: function() {
         	this.$el.html(this.template());
         	return this;
         },
-        addLogLine: function(logline) {
-        	var $span = $('<span/>').html(logline.log).addClass(this.levels[logline.level]);
-        	this.$('div.console').append($span);
-        },
-        setLevel: function(level) {
-        	this.currentLevel = level;
+        addLogLine: function(log) {
+        	var logview = new fsrealtime.Views.LogView({model: log});
+        	this.$('div.console').append(logview.render().$el);
         }
 
     });
