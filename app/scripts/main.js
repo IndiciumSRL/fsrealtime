@@ -9,6 +9,7 @@ window.fsrealtime = {
     init: function () {
         'use strict';
         fsrealtime.console = new fsrealtime.Views.ConsoleView();
+        fsrealtime.console.addLogLine({log: 'Test', level: 0});
     }
 };
 
