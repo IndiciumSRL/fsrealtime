@@ -7,6 +7,7 @@
     	registry : {
     		log: function(args) {
     			var level = args[1];
+                this.trigger('commands:loglevelchanged', level);
     			this.executeDefault(args);
     		}
     	},

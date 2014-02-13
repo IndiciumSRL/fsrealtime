@@ -8,8 +8,7 @@ window.fsrealtime = {
     Routers: {},
     init: function () {
         'use strict';
-        this.console = new fsrealtime.Views.ConsoleView();
-        this.console.resolveFullHeight();
+        Backbone.history.start();
     }
 };
 

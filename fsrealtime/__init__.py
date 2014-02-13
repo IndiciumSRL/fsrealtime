@@ -2,6 +2,8 @@ import logging, os
 
 from flask import Flask, url_for, send_from_directory, redirect
 from flask_sockets import Sockets
+from flask.ext import restful
+
 from geventwebsocket.websocket import WebSocketError
 
 logging.basicConfig(level=logging.DEBUG)
@@ -16,6 +18,7 @@ log = logging.getLogger(__name__)
 
 app = Flask(__name__)
 sockets = Sockets(app)
+api = restful.Api(app)
 
 @sockets.route('/websocket')
 def websocket(ws):
@@ -35,6 +38,19 @@ def websocket(ws):
 def hello():
     return redirect(url_for('dev', filename='index.html'))
 
+@app.route('/api/log/<level>', methods=['POST'])
+def change_log(level):
+    esl.setLogLevel(level)
+
+
+class Servers(restful.Resource):
+    """API to manipulate servers"""
+    def get(self):
+        ''' List servers '''
+        return [{'host': esl.host, 'port': esl.port, 'loglevel': 7}]
+        
+
+api.add_resource(Servers, '/api/servers')
 
 # Custom static data
 @app.route('/dev/<path:filename>')

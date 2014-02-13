@@ -1,0 +1,12 @@
+<div class="row">
+	<div class="jumbotron">
+		<h3>Please, select the server you want to use.</h3>
+		<select>
+			<% _.each(servers, function(server){ %>
+			<option><%= server.host %></option>
+			<% }); %>
+		</select>
+		<button class="btn btb-primary">Select</button>
+	</div>
+</div>
+

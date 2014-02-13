@@ -82,6 +82,13 @@ class _ESLWrapper(threading.Thread):
         self._keep_running = False
         log.debug('Stopping the wrapper thread.')
 
+    def logLevel(self, level):
+        '''
+            Set log logLevel
+        '''
+        if self._sock.connected():
+            self._sock.send('log %s' % level)
+
 
 _esl_wrapper = None
 

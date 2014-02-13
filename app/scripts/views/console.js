@@ -8,7 +8,6 @@ fsrealtime.Views = fsrealtime.Views || {};
     fsrealtime.Views.ConsoleView = Backbone.View.extend({
 
         template: JST['app/scripts/templates/console.ejs'],
-        el: 'div.content .col-xs-11',
         events : {
         	'keypress input[type=text]': 'keypress'
         },
@@ -20,7 +19,7 @@ fsrealtime.Views = fsrealtime.Views || {};
         	this.listenTo(fsrealtime.logs, 'add', this.addLogLine);
         },
         render: function() {
-        	this.$el.html(this.template());
+        	this.$el.html(this.template( {'server': this.server} ));
         	return this;
         },
         addLogLine: function(log) {
