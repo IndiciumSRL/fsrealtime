@@ -63,10 +63,10 @@ module.exports = function (grunt) {
                 ],
                 tasks: ['jst']
             },
-            test: {
-                files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
-                tasks: ['test:false']
-            }
+            // test: {
+            //     files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
+            //     tasks: ['test:false']
+            // }
         },
         clean: {
             dist: ['.tmp', '<%= yeoman.dist %>/*'],

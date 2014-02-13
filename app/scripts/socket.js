@@ -18,18 +18,17 @@
         var host = "ws://"+document.location.host+"/websocket";
 
         function onopen() {
-            console.log('I am connected!');
+            // console.log('I am connected!');
         };
 
         function onclose() {
-            console.log('Connection was closed.');
+            // console.log('Connection was closed.');
         };
 
         function onmessage(msg) {
-            console.log('Message received.');
             var message = jQuery.parseJSON(msg.data);
             var model = new fsrealtime.Protocol(message);
-            fsrealtime.logs.create(model);
+            fsrealtime.logs.set(model);
         };
 
         /*

@@ -7,8 +7,6 @@ fsrealtime.Models = fsrealtime.Models || {};
 
     fsrealtime.Models.LogsModel = Backbone.Model.extend({
 
-        url: '',
-
         initialize: function() {
         },
 
@@ -19,9 +17,5 @@ fsrealtime.Models = fsrealtime.Models || {};
         },
 
     });
-
-    fsrealtime.Models.LogsModel.prototype.sync = function() { return null; };
-    fsrealtime.Models.LogsModel.prototype.fetch = function() { return null; };
-    fsrealtime.Models.LogsModel.prototype.save = function() { return null; };
 
 })();

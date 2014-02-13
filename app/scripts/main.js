@@ -8,22 +8,12 @@ window.fsrealtime = {
     Routers: {},
     init: function () {
         'use strict';
-        fsrealtime.console = new fsrealtime.Views.ConsoleView();
+        this.console = new fsrealtime.Views.ConsoleView();
+        this.console.resolveFullHeight();
     }
 };
 
 $(document).ready(function () {
     'use strict';
     fsrealtime.init();
-    
-    $(window).resize(function () {
-        resolveFullHeight();
-    });
-
-    //Dynamically assign height
-    function resolveFullHeight() {
-        var newHeight = $("html").height() - $(".header").height() - $(".footer").height() - 38 - 55 - 75 + "px";
-        $("div.console").css("height", newHeight);
-    }
-    resolveFullHeight();
 });

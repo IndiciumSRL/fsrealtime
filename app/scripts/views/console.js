@@ -9,8 +9,12 @@ fsrealtime.Views = fsrealtime.Views || {};
 
         template: JST['app/scripts/templates/console.ejs'],
         el: 'div.content .col-xs-11',
+        events : {
+        	'keypress input[type=text]': 'keypress'
+        },
 
         initialize: function() {
+        	$(window).on("resize", this.resolveFullHeight);
         	this.render();
             this.fsconsole = this.$('div.console');
         	this.listenTo(fsrealtime.logs, 'add', this.addLogLine);
@@ -30,6 +34,21 @@ fsrealtime.Views = fsrealtime.Views || {};
             if (scrolltop - scrollpos + 1000 > 0) {
                 this.fsconsole.scrollTop(scrollpos);
             }
+        },
+        resolveFullHeight : function() {
+            var newHeight = $("html").height() - $(".header").height() - $(".footer").height() - 38 - 55 - 75 + "px";
+            $("div.console").css("height", newHeight);
+        },
+        keypress: function(event) {
+        	var key = event.keyCode || event.which;
+
+        	if (key === 13) {
+        		var command = $(event.target).val();
+        		event.preventDefault();
+        		// fsrealtime.logs.create({loglines: [command]});
+        		fsrealtime.commands.execute(command);
+        		$(event.target).val('');
+        	}
         }
 
     });
